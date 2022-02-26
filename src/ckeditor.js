@@ -38,7 +38,6 @@ import Link from '@ckeditor/ckeditor5-link/src/link.js';
 import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties.js';
-import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
 import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak.js';
@@ -106,7 +105,6 @@ Editor.builtinPlugins = [
 	LinkImage,
 	List,
 	ListProperties,
-	Markdown,
 	MediaEmbed,
 	MediaEmbedToolbar,
 	PageBreak,
@@ -159,10 +157,8 @@ Editor.defaultConfig = {
 			'todoList',
 			'|',
 			'link',
-			'imageInsert',
-			'imageUpload',
-			'blockQuote',
 			'insertTable',
+			'imageInsert',
 			'mediaEmbed',
 			'-',
 			'textPartLanguage',
@@ -172,16 +168,19 @@ Editor.defaultConfig = {
 			'fontBackgroundColor',
 			'fontColor',
 			'highlight',
+			'blockQuote',
 			'|',
 			'undo',
 			'redo',
 			'|',
 			'specialCharacters',
 			'horizontalLine',
+			'|',
 			'pageBreak',
 			'|',
 			'code',
 			'codeBlock',
+			'|',
 			'findAndReplace',
 			'|',
 			'sourceEditing'
