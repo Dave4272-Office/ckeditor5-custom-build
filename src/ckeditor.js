@@ -26,6 +26,7 @@ import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
+import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
 import ImageResize from '@ckeditor/ckeditor5-image/src/imageresize.js';
 import ImageStyle from '@ckeditor/ckeditor5-image/src/imagestyle.js';
 import ImageToolbar from '@ckeditor/ckeditor5-image/src/imagetoolbar.js';
@@ -34,12 +35,16 @@ import Indent from '@ckeditor/ckeditor5-indent/src/indent.js';
 import IndentBlock from '@ckeditor/ckeditor5-indent/src/indentblock.js';
 import Italic from '@ckeditor/ckeditor5-basic-styles/src/italic.js';
 import Link from '@ckeditor/ckeditor5-link/src/link.js';
+import LinkImage from '@ckeditor/ckeditor5-link/src/linkimage.js';
 import List from '@ckeditor/ckeditor5-list/src/list.js';
 import ListProperties from '@ckeditor/ckeditor5-list/src/listproperties.js';
+import Markdown from '@ckeditor/ckeditor5-markdown-gfm/src/markdown.js';
 import MediaEmbed from '@ckeditor/ckeditor5-media-embed/src/mediaembed.js';
 import MediaEmbedToolbar from '@ckeditor/ckeditor5-media-embed/src/mediaembedtoolbar.js';
+import PageBreak from '@ckeditor/ckeditor5-page-break/src/pagebreak.js';
 import Paragraph from '@ckeditor/ckeditor5-paragraph/src/paragraph.js';
 import PasteFromOffice from '@ckeditor/ckeditor5-paste-from-office/src/pastefromoffice.js';
+import RemoveFormat from '@ckeditor/ckeditor5-remove-format/src/removeformat.js';
 import SourceEditing from '@ckeditor/ckeditor5-source-editing/src/sourceediting.js';
 import SpecialCharacters from '@ckeditor/ckeditor5-special-characters/src/specialcharacters.js';
 import SpecialCharactersArrows from '@ckeditor/ckeditor5-special-characters/src/specialcharactersarrows.js';
@@ -61,6 +66,7 @@ import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformatio
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
+
 class Editor extends ClassicEditor {}
 
 // Plugins to include in the build.
@@ -88,6 +94,7 @@ Editor.builtinPlugins = [
 	HorizontalLine,
 	Image,
 	ImageCaption,
+	ImageInsert,
 	ImageResize,
 	ImageStyle,
 	ImageToolbar,
@@ -96,12 +103,16 @@ Editor.builtinPlugins = [
 	IndentBlock,
 	Italic,
 	Link,
+	LinkImage,
 	List,
 	ListProperties,
+	Markdown,
 	MediaEmbed,
 	MediaEmbedToolbar,
+	PageBreak,
 	Paragraph,
 	PasteFromOffice,
+	RemoveFormat,
 	SourceEditing,
 	SpecialCharacters,
 	SpecialCharactersArrows,
@@ -131,42 +142,51 @@ Editor.defaultConfig = {
 		items: [
 			'heading',
 			'|',
+			'removeFormat',
 			'bold',
 			'italic',
 			'underline',
-			'|',
-			'bulletedList',
-			'numberedList',
-			'|',
-			'outdent',
-			'indent',
-			'|',
-			'alignment',
-			'fontBackgroundColor',
-			'fontColor',
-			'fontFamily',
-			'fontSize',
-			'highlight',
-			'|',
 			'strikethrough',
 			'subscript',
 			'superscript',
 			'|',
-			'textPartLanguage',
+			'outdent',
+			'indent',
+			'alignment',
+			'|',
+			'bulletedList',
+			'numberedList',
+			'todoList',
 			'|',
 			'link',
+			'imageInsert',
 			'imageUpload',
 			'blockQuote',
 			'insertTable',
-			'todoList',
 			'mediaEmbed',
+			'-',
+			'textPartLanguage',
+			'|',
+			'fontFamily',
+			'fontSize',
+			'fontBackgroundColor',
+			'fontColor',
+			'highlight',
+			'|',
 			'undo',
 			'redo',
+			'|',
+			'specialCharacters',
 			'horizontalLine',
+			'pageBreak',
+			'|',
 			'code',
 			'codeBlock',
-			'specialCharacters'
-		]
+			'findAndReplace',
+			'|',
+			'sourceEditing'
+		],
+		shouldNotGroupWhenFull: true
 	},
 	language: 'en',
 	image: {
@@ -174,7 +194,8 @@ Editor.defaultConfig = {
 			'imageTextAlternative',
 			'imageStyle:inline',
 			'imageStyle:block',
-			'imageStyle:side'
+			'imageStyle:side',
+			'linkImage'
 		]
 	},
 	table: {
