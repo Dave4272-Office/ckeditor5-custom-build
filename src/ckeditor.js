@@ -14,6 +14,7 @@ import CKFinderUploadAdapter from '@ckeditor/ckeditor5-adapter-ckfinder/src/uplo
 import CloudServices from '@ckeditor/ckeditor5-cloud-services/src/cloudservices.js';
 import Code from '@ckeditor/ckeditor5-basic-styles/src/code.js';
 import CodeBlock from '@ckeditor/ckeditor5-code-block/src/codeblock.js';
+import DataFilter from '@ckeditor/ckeditor5-html-support/src/datafilter.js';
 import DataSchema from '@ckeditor/ckeditor5-html-support/src/dataschema.js';
 import Essentials from '@ckeditor/ckeditor5-essentials/src/essentials.js';
 import FindAndReplace from '@ckeditor/ckeditor5-find-and-replace/src/findandreplace.js';
@@ -21,9 +22,12 @@ import FontBackgroundColor from '@ckeditor/ckeditor5-font/src/fontbackgroundcolo
 import FontColor from '@ckeditor/ckeditor5-font/src/fontcolor.js';
 import FontFamily from '@ckeditor/ckeditor5-font/src/fontfamily.js';
 import FontSize from '@ckeditor/ckeditor5-font/src/fontsize.js';
+import GeneralHtmlSupport from '@ckeditor/ckeditor5-html-support/src/generalhtmlsupport.js';
 import Heading from '@ckeditor/ckeditor5-heading/src/heading.js';
 import Highlight from '@ckeditor/ckeditor5-highlight/src/highlight.js';
 import HorizontalLine from '@ckeditor/ckeditor5-horizontal-line/src/horizontalline.js';
+import HtmlComment from '@ckeditor/ckeditor5-html-support/src/htmlcomment.js';
+import HtmlEmbed from '@ckeditor/ckeditor5-html-embed/src/htmlembed.js';
 import Image from '@ckeditor/ckeditor5-image/src/image.js';
 import ImageCaption from '@ckeditor/ckeditor5-image/src/imagecaption.js';
 import ImageInsert from '@ckeditor/ckeditor5-image/src/imageinsert.js';
@@ -62,6 +66,7 @@ import TableProperties from '@ckeditor/ckeditor5-table/src/tableproperties';
 import TableToolbar from '@ckeditor/ckeditor5-table/src/tabletoolbar.js';
 import TextPartLanguage from '@ckeditor/ckeditor5-language/src/textpartlanguage.js';
 import TextTransformation from '@ckeditor/ckeditor5-typing/src/texttransformation.js';
+import Title from '@ckeditor/ckeditor5-heading/src/title.js';
 import TodoList from '@ckeditor/ckeditor5-list/src/todolist';
 import Underline from '@ckeditor/ckeditor5-basic-styles/src/underline.js';
 import WordCount from '@ckeditor/ckeditor5-word-count/src/wordcount.js';
@@ -81,6 +86,7 @@ Editor.builtinPlugins = [
 	CloudServices,
 	Code,
 	CodeBlock,
+	DataFilter,
 	DataSchema,
 	Essentials,
 	FindAndReplace,
@@ -88,9 +94,12 @@ Editor.builtinPlugins = [
 	FontColor,
 	FontFamily,
 	FontSize,
+	GeneralHtmlSupport,
 	Heading,
 	Highlight,
 	HorizontalLine,
+	HtmlComment,
+	HtmlEmbed,
 	Image,
 	ImageCaption,
 	ImageInsert,
@@ -129,6 +138,7 @@ Editor.builtinPlugins = [
 	TableToolbar,
 	TextPartLanguage,
 	TextTransformation,
+	Title,
 	TodoList,
 	Underline,
 	WordCount
@@ -183,7 +193,8 @@ Editor.defaultConfig = {
 			'|',
 			'findAndReplace',
 			'|',
-			'sourceEditing'
+			'sourceEditing',
+			'htmlEmbed'
 		],
 		shouldNotGroupWhenFull: true
 	},
